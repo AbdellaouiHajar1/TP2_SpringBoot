@@ -4,9 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import lombok.NonNull;
+import jakarta.validation.constraints.*;
+
+
 
 import java.util.Date;
 
@@ -19,9 +19,9 @@ public class Task {
     @NotBlank(message = "La description ne doit pas être vide.")
     @Size(max = 255, message = "La description ne doit pas dépasser 255 caractères.")
     private String description;
-    @NonNull
+    @NotNull(message = "La date de création ne doit pas être nulle.")
     private Date date_création;
-    @NonNull
+    @NotNull(message = "La date_échéance ne doit pas être nulle.")
     private Date date_échéance;
 
     public Date getDate_création() {
